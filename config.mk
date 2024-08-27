@@ -7,8 +7,10 @@ VERSION = 0.9.2
 PREFIX = /usr/local
 MANPREFIX = $(PREFIX)/share/man
 
-X11INC = /usr/X11R6/include
-X11LIB = /usr/X11R6/lib
+# X11INC = /usr/X11R6/include
+# X11LIB = /usr/X11R6/lib
+X11INC = $(HOME)/src/libxft/include
+X11LIB = $(HOME)/src/libxft/src/.libs
 
 PKG_CONFIG = pkg-config
 
@@ -23,7 +25,8 @@ LIBS = -L$(X11LIB) -lm -lrt -lX11 -lutil -lXft \
 # flags
 STCPPFLAGS = -DVERSION=\"$(VERSION)\" -D_XOPEN_SOURCE=600
 STCFLAGS = $(INCS) $(STCPPFLAGS) $(CPPFLAGS) $(CFLAGS)
-STLDFLAGS = $(LIBS) $(LDFLAGS)
+# STLDFLAGS = $(LIBS) $(LDFLAGS)
+STLDFLAGS = -Xlinker -rpath=$(X11LIB) $(LIBS) $(LDFLAGS)
 
 # OpenBSD:
 #CPPFLAGS = -DVERSION=\"$(VERSION)\" -D_XOPEN_SOURCE=600 -D_BSD_SOURCE
