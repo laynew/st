@@ -8,6 +8,7 @@
 static char *font = "DejaVu Sans Mono:pixelsize=22:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
+	"Noto Color Emoji:size=16"
 /*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
 /*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
 };
